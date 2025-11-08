@@ -38,6 +38,7 @@ alias gp='git push'
 alias spotify='spotify-launcher'
 alias bluetooth='blueman-manager'
 alias hypr='hyprland'
+alias fastfetch='clear;fastfetch'
 
 eval $(thefuck --alias)
 
