@@ -37,18 +37,17 @@ alias gp='git push'
 
 alias spotify='spotify-launcher'
 alias bluetooth='blueman-manager'
-alias hypr='hyprland'
+alias hypr='start-hyprland'
 alias fastfetch='clear;fastfetch'
+alias hytale='setsid flatpak run com.hypixel.HytaleLauncher >/dev/null 2>&1 &'
 
 eval $(thefuck --alias)
 
 export PATH="$HOME/bin:$PATH"
 export PATH=$PATH:/usr/local/go/bin
-export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
+export PATH="$HOME/.local/bin:$PATH"
 
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/home/patty/.lmstudio/bin"
-# End of LM Studio CLI section
 
+
+. "$HOME/.local/bin/env"

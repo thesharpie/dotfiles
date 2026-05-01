@@ -22,6 +22,10 @@ vim.opt.incsearch = true
 
 vim.opt.termguicolors = true
 
+-- Background opacity: 0.85 = 85% opaque (winblend 0-100, 0=opaque 100=transparent)
+vim.opt.winblend = 15
+vim.opt.pumblend = 15
+
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
@@ -29,3 +33,20 @@ vim.opt.isfname:append("@-@")
 vim.opt.updatetime = 50
 
 vim.opt.colorcolumn = "80"
+
+-- Make backgrounds transparent so terminal opacity shows through
+local function set_transparent_backgrounds()
+	local groups = {
+		"Normal", "NormalFloat", "NormalNC", "LineNr", "SignColumn",
+		"EndOfBuffer", "CursorLine", "CursorLineNr", "StatusLine", "StatusLineNC",
+		"TabLine", "TabLineFill", "Folded", "FoldColumn", "Pmenu", "PmenuSel",
+		"FloatBorder", "WinSeparator", "VertSplit", "ColorColumn",
+	}
+	for _, group in ipairs(groups) do
+		vim.api.nvim_set_hl(0, group, { bg = "none" })
+	end
+end
+
+vim.api.nvim_create_autocmd("ColorScheme", {
+	callback = set_transparent_backgrounds,
+})
