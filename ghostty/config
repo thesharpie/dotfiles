@@ -20,6 +20,6 @@ shell-integration-features = no-cursor
 keybind = f11=toggle_fullscreen
 
 
-theme = Gruvbox Dark 
+theme = thorn 
 
 background-opacity = 0.85
