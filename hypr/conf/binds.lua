@@ -2,6 +2,12 @@
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
+local terminal        = "ghostty"
+local fileManager     = "dolphin"
+local menu            = "hyprlauncher"
+local internetBrowser = "firefox"
+local ide             = "code"
+
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("ghostty -e btop"))
@@ -9,7 +15,7 @@ hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("discord"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(internetBrowser))
 hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("gimp"))
-hl.bind(mainMod .. " + H", hl.dsp.exec_cmd("heliuum-browser"))
+hl.bind(mainMod .. " + H", hl.dsp.exec_cmd("helium-browser"))
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("obsidian"))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))

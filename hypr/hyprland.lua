@@ -9,20 +9,9 @@
 require("conf.monitors")
 
 
----------------------
----- MY PROGRAMS ----
----------------------
-
-local terminal        = "ghostty"
-local fileManager     = "dolphin"
-local menu            = "hyprlauncher"
-local internetBrowser = "firefox"
-local ide             = "code"
-
-
--------------------
+--------------------
 ---- AUTOSTART ----
--------------------
+--------------------
 require("conf.autostart")
 
 
