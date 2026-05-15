@@ -606,6 +606,14 @@ do
     -- But for many setups, the LSP (`ts_ls`) will work just fine
     -- ts_ls = {},
 
+    ruff = {
+      cmd = { 'ruff', 'server' },
+      filetype = {'python' },
+      root_markers = { 'pyproject.toml', 'ruff.toml', '.ruff.toml', '.git' },
+      init_options = {
+        settings = {},
+      },
+    },
     ty = {},
     stylua = {}, -- Used to format Lua code
 
