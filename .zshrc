@@ -109,3 +109,12 @@ alias p="bat"
 
 eval "$(zoxide init zsh)"
 
+
+# bun completions
+[ -s "/Users/patty/.bun/_bun" ] && source "/Users/patty/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+. "$HOME/.local/bin/env"
