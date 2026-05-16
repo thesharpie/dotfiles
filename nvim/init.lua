@@ -223,6 +223,12 @@ do
         vim.cmd 'TSUpdate'
         return
       end
+
+      if name == 'fff.nvim' then
+        if not ev.data.active then vim.cmd.packadd 'fff.nvim' end
+        require('fff.download').download_or_build_binary()
+        return
+      end
     end,
   })
 end
@@ -485,6 +491,17 @@ do
 
   -- Shortcut for searching your Neovim configuration files
   vim.keymap.set('n', '<leader>sn', function() builtin.find_files { cwd = vim.fn.stdpath 'config' } end, { desc = '[S]earch [N]eovim files' })
+
+  -- [[ fff.nvim - fuzzy file finder ]]
+  vim.pack.add { gh 'dmtrKovalenko/fff.nvim' }
+
+
+  vim.g.fff = {
+    lazy_sync = true,
+    debug = { enabled = true, show_scores = true },
+  }
+
+  vim.keymap.set('n', 'ff', function() require('fff').find_files() end, { desc = 'FFFind files' })
 end
 
 -- ============================================================
