@@ -292,27 +292,13 @@ do
   }
 
   -- [[ Colorscheme ]]
-  -- You can easily change to a different colorscheme.
-  -- Change the name of the colorscheme plugin below, and then
-  -- change the command under that to load whatever the name of that colorscheme is.
-  --
   -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-  vim.pack.add { gh 'folke/tokyonight.nvim' }
-  ---@diagnostic disable-next-line: missing-fields
-  require('tokyonight').setup {
-    styles = {
-      comments = { italic = false }, -- Disable italics in comments
-    },
-  }
 
   -- thorn.nvim colorscheme
   vim.pack.add { gh 'jpwol/thorn.nvim' }
   require('thorn').setup {
     transparent = true
   }
-
-  -- guruvbox colorscheme
-  vim.pack.add { gh "ellisonleao/gruvbox.nvim" }
 
   -- Load the colorscheme here.
   -- Like many other themes, this one has different styles, and you could load
@@ -620,6 +606,15 @@ do
     -- But for many setups, the LSP (`ts_ls`) will work just fine
     -- ts_ls = {},
 
+    ruff = {
+      cmd = { 'ruff', 'server' },
+      filetype = {'python' },
+      root_markers = { 'pyproject.toml', 'ruff.toml', '.ruff.toml', '.git' },
+      init_options = {
+        settings = {},
+      },
+    },
+    ty = {},
     stylua = {}, -- Used to format Lua code
 
     -- Special Lua Config, as recommended by neovim help docs
@@ -677,6 +672,7 @@ do
   local ensure_installed = vim.tbl_keys(servers or {})
   vim.list_extend(ensure_installed, {
     -- You can add other tools here that you want Mason to install
+    'ty',
   })
 
   require('mason-tool-installer').setup { ensure_installed = ensure_installed }
