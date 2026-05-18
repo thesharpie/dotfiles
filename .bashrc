@@ -40,6 +40,7 @@ alias bluetooth='blueman-manager'
 alias hypr='start-hyprland'
 alias fastfetch='clear;fastfetch'
 alias hytale='setsid flatpak run com.hypixel.HytaleLauncher >/dev/null 2>&1 &'
+alias vintage_story='setsid flatpak run at.vintagestory.VintageStory >/dev/null 2>&1 &'
 
 eval $(thefuck --alias)
 
