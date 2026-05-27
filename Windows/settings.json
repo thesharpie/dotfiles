@@ -1,0 +1,163 @@
+{
+    "$help": "https://aka.ms/terminal-documentation",
+    "$schema": "https://aka.ms/terminal-profiles-schema",
+    "actions": 
+    [
+        {
+            "command": 
+            {
+                "action": "copy",
+                "singleLine": false
+            },
+            "id": "User.copy.644BA8F2"
+        },
+        {
+            "command": "paste",
+            "id": "User.paste"
+        },
+        {
+            "command": 
+            {
+                "action": "splitPane",
+                "split": "auto",
+                "splitMode": "duplicate"
+            },
+            "id": "User.splitPane.A6751878"
+        },
+        {
+            "command": "find",
+            "id": "User.find"
+        }
+    ],
+    "copyFormatting": "none",
+    "copyOnSelect": false,
+    "defaultProfile": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+    "keybindings": 
+    [
+        {
+            "id": "User.copy.644BA8F2",
+            "keys": "ctrl+c"
+        },
+        {
+            "id": "User.find",
+            "keys": "ctrl+shift+f"
+        },
+        {
+            "id": "User.paste",
+            "keys": "ctrl+v"
+        },
+        {
+            "id": "User.splitPane.A6751878",
+            "keys": "alt+shift+d"
+        }
+    ],
+    "newTabMenu": 
+    [
+        {
+            "type": "remainingProfiles"
+        }
+    ],
+    "profiles": 
+    {
+        "defaults": {
+            "opacity": 85,
+            "useAcrylic": false
+        },
+        "list": 
+        [
+            {
+                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+                "hidden": false,
+                "name": "Windows PowerShell",
+                "colorScheme": "thorn"
+            },
+            {
+                "commandline": "%SystemRoot%\\System32\\cmd.exe",
+                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+                "hidden": false,
+                "name": "Command Prompt",
+                "colorScheme": "thorn"
+            },
+            {
+                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+                "hidden": false,
+                "name": "Azure Cloud Shell",
+                "source": "Windows.Terminal.Azure",
+                "colorScheme": "thorn"
+            },
+            {
+                "guid": "{4dd1e689-b517-5f39-947d-78e8a8bdf958}",
+                "hidden": false,
+                "name": "Ubuntu 20.04.6 LTS",
+                "source": "CanonicalGroupLimited.Ubuntu20.04LTS_79rhkp1fndgsc",
+                "colorScheme": "thorn"
+            },
+            {
+                "guid": "{07b52e3e-de2c-5db4-bd2d-ba144ed6c273}",
+                "hidden": true,
+                "name": "Ubuntu-20.04",
+                "source": "Windows.Terminal.Wsl",
+                "colorScheme": "thorn"
+            },
+            {
+                "guid": "{f1d11f02-c471-56dd-8233-0ec7ab02e2ab}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio",
+                "colorScheme": "thorn"
+            },
+            {
+                "guid": "{9f223a43-87b6-5348-9150-8aa4cc00d1a3}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio",
+                "colorScheme": "thorn"
+            },
+            {
+                "guid": "{46ca431a-3a87-5fb3-83cd-11ececc031d2}",
+                "hidden": false,
+                "name": "kali-linux",
+                "source": "Windows.Terminal.Wsl",
+                "colorScheme": "thorn"
+            },
+            {
+                "guid": "{c591aaeb-5e9d-5ba7-a61e-1aa4b17cca1f}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 18",
+                "source": "Windows.Terminal.VisualStudio",
+                "colorScheme": "thorn"
+            },
+            {
+                "guid": "{5bfd459d-1fc1-558a-bc20-f84a25823442}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 18",
+                "source": "Windows.Terminal.VisualStudio",
+                "colorScheme": "thorn"
+            }
+        ]
+    },
+    "schemes": [{
+        "name": "thorn",
+        "background": "#152326",
+        "foreground": "#D9D3CE",
+        "cursorColor": "#D9D3CE",
+        "black": "#4B6268",
+        "red": "#FF5B61",
+        "green": "#9DC6A9",
+        "yellow": "#FFCF99",
+        "blue": "#86BFD2",
+        "purple": "#D59CCE",
+        "cyan": "#F9ADA1",
+        "white": "#91A4AD",
+        "brightBlack": "#5E7D85",
+        "brightRed": "#D48588",
+        "brightGreen": "#95C2A1",
+        "brightYellow": "#FDD9AF",
+        "brightBlue": "#A7CBEA",
+        "brightPurple": "#D9ADD4",
+        "brightCyan": "#FFC4BB",
+        "brightWhite": "#D9D3CE"
+    }],
+    "themes": []
+}
