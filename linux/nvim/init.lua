@@ -408,7 +408,25 @@ do
     --     i = { ['<c-enter>'] = 'to_fuzzy_refine' },
     --   },
     -- },
-    -- pickers = {}
+    defaults = {
+      vimgrep_arguments = {
+        'rg',
+        '--no-ignore',
+        '--color=never',
+        '--no-heading',
+        '--with-filename',
+        '--line-number',
+        '--column',
+        '--smart-case',
+      },
+    },
+    pickers = {
+      find_files = {
+        find_command = vim.fn.executable('fd') == 1 and { 'fd', '--no-ignore', '--type', 'f', '--color', 'never' }
+          or vim.fn.executable('rg') == 1 and { 'rg', '--no-ignore', '--files', '--color', 'never' }
+          or nil,
+      },
+    },
     extensions = {
       ['ui-select'] = { require('telescope.themes').get_dropdown() },
     },
