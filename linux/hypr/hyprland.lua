@@ -2,6 +2,12 @@
 -- Refer to the wiki for more information.
 -- https://wiki.hypr.land/Configuring/Start/
 
+-- Globals
+MAIN_MOD = "SUPER"
+TERMINAL = "ghostty"
+BROWSER = "helium-browser"
+FILE_MANAGER = "~/.config/hypr/scripts/yazi.sh"
+MENU = "hyprlauncher"
 
 ------------------
 ---- MONITORS ----
