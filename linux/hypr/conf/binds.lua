@@ -6,6 +6,7 @@ hl.bind(MAIN_MOD .. " + G",                      hl.dsp.exec_cmd(BROWSER))
 hl.bind(MAIN_MOD .. " + E",                      hl.dsp.exec_cmd(FILE_MANAGER))
 hl.bind(MAIN_MOD .. " + B",                      hl.dsp.exec_cmd("ghostty -e btop"))
 hl.bind(MAIN_MOD .. " + D",                      hl.dsp.exec_cmd("discord"))
+hl.bind(MAIN_MOD .. " + X",                      hl.dsp.exec_cmd("~/.config/hypr/scripts/btop-float.sh"))
 hl.bind(MAIN_MOD.. " + SHIFT + S",               hl.dsp.exec_cmd("steam"))
 
 -- General

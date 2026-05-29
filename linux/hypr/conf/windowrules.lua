@@ -32,3 +32,11 @@ hl.window_rule({
     move  = "20 monitor_h-120",
     float = true,
 })
+
+-- btop float windowrule
+hl.window_rule({
+    name  = "btop-float",
+    match = { class = "btop-float" },
+
+    float = true,
+})
