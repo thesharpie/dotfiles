@@ -1,0 +1,83 @@
+# Main background, empty for terminal default
+theme[main_bg]="#101414"
+
+# Main text
+theme[main_fg]="#C8D0C8"
+
+# Title background
+theme[title]="#D18A57"
+
+# Highlight color
+theme[hi_fg]="#E0526F"
+
+# Selected item background
+theme[selected_bg]="#26302A"
+
+# Selected item foreground
+theme[selected_fg]="#F0D8A8"
+
+# Inactive foreground
+theme[inactive_fg]="#5F6B62"
+
+# Graph text
+theme[graph_text]="#A8B8A8"
+
+# Meter background
+theme[meter_bg]="#202820"
+
+# Processor box
+theme[proc_misc]="#A9B88F"
+
+# CPU box
+theme[cpu_box]="#3D4A3F"
+theme[mem_box]="#4B3E4F"
+theme[net_box]="#3C4754"
+theme[proc_box]="#4F3A3F"
+
+# Divider lines
+theme[div_line]="#334038"
+
+# Temperature colors
+theme[temp_start]="#8FBF8F"
+theme[temp_mid]="#D1A857"
+theme[temp_end]="#E0526F"
+
+# CPU graph colors
+theme[cpu_start]="#6F8F6F"
+theme[cpu_mid]="#B6A35D"
+theme[cpu_end]="#E0526F"
+
+# Free memory
+theme[free_start]="#5F7A68"
+theme[free_mid]="#8AA37A"
+theme[free_end]="#B8C48A"
+
+# Cached memory
+theme[cached_start]="#4B5F56"
+theme[cached_mid]="#6F8073"
+theme[cached_end]="#9BAA93"
+
+# Available memory
+theme[available_start]="#607868"
+theme[available_mid]="#8CA57E"
+theme[available_end]="#C0C98A"
+
+# Used memory
+theme[used_start]="#75505D"
+theme[used_mid]="#B65E69"
+theme[used_end]="#E0526F"
+
+# Download graph
+theme[download_start]="#52697A"
+theme[download_mid]="#6689A0"
+theme[download_end]="#8BB5D1"
+
+# Upload graph
+theme[upload_start]="#6B4D5F"
+theme[upload_mid]="#A05872"
+theme[upload_end]="#D86B7A"
+
+# Process colors
+theme[process_start]="#6F8F6F"
+theme[process_mid]="#C1A15E"
+theme[process_end]="#E0526F"
