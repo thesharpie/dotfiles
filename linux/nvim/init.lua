@@ -297,6 +297,23 @@ do
     },
   }
 
+  -- [[ File explorer ]]
+  -- neo-tree shows a folder tree in a side panel (like VS Code's explorer)
+  -- Toggle it with `<leader>e`
+  -- plenary must be active before neo-tree's setup requires it
+  -- (it is also added later for Telescope, which is a harmless no-op)
+  vim.pack.add { gh 'MunifTanjim/nui.nvim', gh 'nvim-lua/plenary.nvim', gh 'nvim-neo-tree/neo-tree.nvim' }
+  require('neo-tree').setup {
+    close_if_last_window = true,
+    window = { width = 30 },
+    filesystem = {
+      follow_current_file = { enabled = true },
+      use_libuv_file_watcher = true,
+    },
+  }
+  vim.keymap.set('n', '<leader>e', function() require('neo-tree.command').execute { toggle = true } end, { desc = 'Toggle file [E]xplorer' })
+  vim.keymap.set('n', '<leader>E', function() require('neo-tree.command').execute { action = 'focus' } end, { desc = 'Focus file [E]xplorer' })
+
   -- [[ Colorscheme ]]
   -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
 
@@ -901,7 +918,87 @@ do
 end
 
 -- ============================================================
--- SECTION 9: OPTIONAL EXAMPLES / NEXT STEPS
+-- SECTION 9: LATEX / TEXPRESSO
+-- Live LaTeX preview via TeXpresso (requires `texpresso` binary in PATH)
+-- ============================================================
+do
+  -- TeXpresso provides live rendering of LaTeX documents.
+  -- Usage: open a `.tex` file and run `:TeXpresso %` (or `:TeXpresso main.tex`).
+  -- Prereqs: the `texpresso` binary and a TeX distribution (TeXlive via
+  -- `kpsewhich`, or `tectonic`) must be available on PATH.
+  --
+  -- The `texpresso` binary was built from source (let-def/texpresso) and is
+  -- not on PATH, so point the plugin at it. Requiring the module also eagerly
+  -- registers the `:TeXpresso` command and the `*.tex` SyncTeX autocmds.
+  -- If you later put `texpresso` on PATH, you can delete this line.
+  vim.pack.add { gh 'let-def/texpresso.vim' }
+  local tx = require('texpresso')
+  tx.texpresso_path = vim.fn.expand '~/Downloads/gitfiles/texpresso/build/texpresso'
+
+  -- Debug toggle: `:TeXpressoDebug on` logs every message sent to the binary
+  -- to `~/.local/state/nvim/texpresso-debug.log`. Tail it live from another
+  -- terminal to see what the editor sends when you edit:
+  --   tail -f ~/.local/state/nvim/texpresso-debug.log
+  -- `:TeXpressoDebug off` silences it. `:TeXpressoStatus` shows whether the
+  -- process is still alive and how many log/qf messages have been received.
+  local orig_send = tx.send
+  local debug_on = false
+  local debug_log_path = vim.fn.stdpath('log') .. '/texpresso-debug.log'
+
+  local function dbg(msg)
+    if not debug_on then return end
+    -- Append to a file so the user can `tail -f` it in another terminal
+    -- while editing. File writes are safe inside textlock callbacks.
+    local line = os.date('%H:%M:%S') .. ' ' .. msg
+    local f = io.open(debug_log_path, 'a')
+    if f then
+      f:write(line .. '\n')
+      f:close()
+    end
+  end
+  tx.send = function(...)
+    if debug_on then dbg('SEND ' .. vim.inspect({ ... })) end
+    return orig_send(...)
+  end
+  local function set_debug(on)
+    debug_on = on
+    if on then
+      -- Truncate previous log and write a header.
+      local f = io.open(debug_log_path, 'w')
+      if f then
+        f:write('=== TeXpresso debug ON '
+          .. os.date('%Y-%m-%d %H:%M:%S')
+          .. ' (is_running=' .. tostring(tx.is_running())
+          .. ' path=' .. tostring(tx.texpresso_path) .. ') ===\n')
+        f:close()
+      end
+      vim.notify(
+        'TeXpresso debug ON -> tail -f ' .. debug_log_path,
+        vim.log.levels.INFO
+      )
+    else
+      vim.notify('TeXpresso debug OFF', vim.log.levels.INFO)
+    end
+  end
+  vim.api.nvim_create_user_command('TeXpressoDebug', function(opts)
+    set_debug(vim.trim(opts.args or ''):lower() ~= 'off')
+  end, { nargs = 1, desc = 'Toggle TeXpresso debug logging (on|off)' })
+
+  -- Quick status command to check process state after edits.
+  vim.api.nvim_create_user_command('TeXpressoStatus', function()
+    local ok, fix = pcall(function() return #tx.fix end)
+    vim.notify(
+      'TeXpresso: running=' .. tostring(tx.is_running())
+        .. ' log_lines=' .. #tx.log
+        .. ' qf_items=' .. (ok and fix or '?')
+        .. ' path=' .. tostring(tx.texpresso_path),
+      vim.log.levels.INFO
+    )
+  end, { desc = 'Show TeXpresso process + buffer state' })
+end
+
+-- ============================================================
+-- SECTION 10: OPTIONAL EXAMPLES / NEXT STEPS
 -- kickstart.plugins.* examples
 -- ============================================================
 do
